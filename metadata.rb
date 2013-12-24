@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 name             'chef-marathon'
 maintainer       'Jason Giedymin'
 maintainer_email 'jasong@apache.org'
@@ -18,5 +20,7 @@ depends 'yum'
 
 # Generic
 depends 'build-essential'
-depends 'java'
 depends 'ark'
+depends 'java'
+depends 'maven'
+depends 'chef-mesos'
