@@ -1,6 +1,10 @@
 chef-marathon
 -------------
 
+
+[![Build Status](https://travis-ci.org/JasonGiedymin/chef-marathon.png?branch=master)](https://travis-ci.org/JasonGiedymin/chef-marathon)
+
+
 ## Default Attribs
 
     default['marathon']['source']['repo']      = 'https://github.com/mesosphere/marathon.git'
