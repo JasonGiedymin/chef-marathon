@@ -62,7 +62,7 @@ end
 
 ruby_block 'cleanup_marathon' do
   block do
-    files = Dir["#{node[:marathon][:install][:location]}/marathon*.jar"]
+    files = Dir["#{node['marathon']['install']['location']}/marathon*.jar"]
     files.each do |filename|
       FileUtils.rm(filename)
     end
@@ -72,7 +72,7 @@ ruby_block 'cleanup_marathon' do
 end
 
 bash 'compile_marathon' do
-  cwd node[:marathon][:source][:dir]
+  cwd node['marathon']['source']['dir']
   code <<-EOH
     mvn clean
     mvn compile
@@ -82,9 +82,9 @@ bash 'compile_marathon' do
   notifies :run, 'ruby_block[cleanup_marathon]'
 end
 
-git node[:marathon][:source][:dir] do
-  repository node[:marathon][:source][:repo]
-  reference node[:marathon][:source][:branch]
+git node['marathon']['source']['dir'] do
+  repository node['marathon']['source']['repo']
+  reference node['marathon']['source']['branch']
   action :sync
   notifies :run, 'bash[compile_marathon]'
 end
