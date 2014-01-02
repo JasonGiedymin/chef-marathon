@@ -7,12 +7,9 @@ else
   default['mesos']['package_format'] = 'rpm'
 end
 
-chef_working_dir = Chef::Config['file_cache_path']
-github = 'https://github.com'
-
 # == compile ==
-default['marathon']['source']['dir'] = "#{chef_working_dir}/marathon"
-default['marathon']['source']['repo'] = "#{github}/mesosphere/marathon.git"
+default['marathon']['source']['dir'] = "#{Chef::Config['file_cache_path']}/marathon"
+default['marathon']['source']['repo'] = 'https://github.com/mesosphere/marathon.git'
 default['marathon']['source']['branch'] = 'master' # git branch to compile from
 
 # == install ==
